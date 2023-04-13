@@ -40,3 +40,32 @@ def get_result():
             win = "0"
 
     return win
+
+# Основная программа
+game_over = False
+player1 = True
+while game_over == False:
+    # 1) Показываем карту
+    print_maps()
+
+    # 2) Спросить у игрока, куда делать ход
+    if player1 == True:
+        symbol = "X"
+        step = int(input("Игрок 1, ход за вами: "))
+    else:
+        symbol = "0"
+        step = int(input("Игрок 2, ход за вами: "))
+
+    step_maps(step,symbol) # делаем ход в указанную ячейку
+    win = get_result() # определяем победителя
+    if win != "":
+        game_over = True
+    else:
+        game_over = False
+
+    player1 = not(player1)
+# игра окончена, объявляем победителя
+print_maps()
+print("Победил ", win)
+        
+
