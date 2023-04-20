@@ -33,7 +33,7 @@ def step_field(map,sym):
 def get_result():
     win = ""
 
-    for i in victories:
+    for i in lines:
         if field[i[0]] == "X" and field[i[1]] == "X" and field[i[2]] == "X":
             win = "X"
         if field[i[0]] == "0" and field[i[1]] == "0" and field[i[2]] == "0":
@@ -51,12 +51,12 @@ while game_over == False:
     # 2) куда делать ход
     if player1 == True:
         sym = "X"
-        step = int(input("игрок 1, ваш ход: "))
+        map = int(input("игрок 1, ваш ход: "))
     else:
         sym = "0"
-        step = int(input("игрок 2, ваш ход: "))
+        map = int(input("игрок 2, ваш ход: "))
 
-    step_field(step,symbol) # делаем ход 
+    step_field(map,sym) # делаем ход 
     win = get_result() # победитель
     if win != "":
         game_over = True
