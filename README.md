@@ -1,4 +1,4 @@
-# -# Инициализация карты
+# -# создаём карту
 field = [1,2,3,
         4,5,6,
         7,8,9]
@@ -11,7 +11,7 @@ victor = [[0,1,2],
           [2,5,8],
           [0,4,8],
           [2,4,6]]
-# Вывод карты на экран
+# поле на экране
 def print_field():
     print(field[0], end = " ")
     print(field[1], end = " ")
@@ -25,11 +25,11 @@ def print_field():
     print(field[7], end = " ")
     print(field[8])
 
-# Сделаем ход
-def step_field(step,symbol):
-    inp = field.index(step)
-    field[inp] = symbol
-# Получить текущий результат игры
+# делаем ход
+def step_field(map,sym):
+    inp = field.index(map)
+    field[inp] = sym
+# результат игры
 def get_result():
     win = ""
 
@@ -41,22 +41,22 @@ def get_result():
 
     return win
 
-# Программа
+# программа
 game_over = False
 player1 = True
 while game_over == False:
     # 1) Показываем карту
     print_field()
 
-    # 2) Спросить у игрока, куда делать ход
+    # 2) куда делать ход
     if player1 == True:
         symbol = "X"
-        step = int(input("Игрок 1, ваш ход: "))
+        step = int(input("игрок 1, ваш ход: "))
     else:
         symbol = "0"
-        step = int(input("Игрок 2, ваш ход: "))
+        step = int(input("игрок 2, ваш ход: "))
 
-    step_field(step,symbol) # делаем ход в ячейку
+    step_field(step,symbol) # делаем ход 
     win = get_result() # победитель
     if win != "":
         game_over = True
@@ -67,5 +67,3 @@ while game_over == False:
 # игра окончена, победитель
 print_field()
 print("Победил ", win)
-        
-
