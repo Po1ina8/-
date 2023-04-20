@@ -50,10 +50,10 @@ while game_over == False:
 
     # 2) куда делать ход
     if player1 == True:
-        symbol = "X"
+        sym = "X"
         step = int(input("игрок 1, ваш ход: "))
     else:
-        symbol = "0"
+        sym = "0"
         step = int(input("игрок 2, ваш ход: "))
 
     step_field(step,symbol) # делаем ход 
