@@ -1,71 +1,71 @@
 # -# Инициализация карты
-maps = [1,2,3,
+field = [1,2,3,
         4,5,6,
         7,8,9]
-# Инициализация победных линий
-victories = [[0,1,2],
-             [3,4,5],
-             [6,7,8],
-             [0,3,6],
-             [1,4,7],
-             [2,5,8],
-             [0,4,8],
-             [2,4,6]]
+# победа в линиях
+victor = [[0,1,2],
+          [3,4,5],
+          [6,7,8],
+          [0,3,6],
+          [1,4,7],
+          [2,5,8],
+          [0,4,8],
+          [2,4,6]]
 # Вывод карты на экран
-def print_maps():
-    print(maps[0], end = " ")
-    print(maps[1], end = " ")
-    print(maps[2])
+def print_field():
+    print(field[0], end = " ")
+    print(field[1], end = " ")
+    print(field[2])
 
-    print(maps[3], end = " ")
-    print(maps[4], end = " ")
-    print(maps[5])
+    print(field[3], end = " ")
+    print(field[4], end = " ")
+    print(field[5])
 
-    print(maps[6], end = " ")
-    print(maps[7], end = " ")
-    print(maps[8])
+    print(field[6], end = " ")
+    print(field[7], end = " ")
+    print(field[8])
 
-# Сделать ход в ячейку
-def step_maps(step,symbol):
-    ind = maps.index(step)
-    maps[ind] = symbol
+# Сделаем ход
+def step_field(step,symbol):
+    inp = field.index(step)
+    field[inp] = symbol
 # Получить текущий результат игры
 def get_result():
     win = ""
 
     for i in victories:
-        if maps[i[0]] == "X" and maps[i[1]] == "X" and maps[i[2]] == "X":
+        if field[i[0]] == "X" and field[i[1]] == "X" and field[i[2]] == "X":
             win = "X"
-        if maps[i[0]] == "0" and maps[i[1]] == "0" and maps[i[2]] == "0":
+        if field[i[0]] == "0" and field[i[1]] == "0" and field[i[2]] == "0":
             win = "0"
 
     return win
 
-# Основная программа
+# Программа
 game_over = False
 player1 = True
 while game_over == False:
     # 1) Показываем карту
-    print_maps()
+    print_field()
 
     # 2) Спросить у игрока, куда делать ход
     if player1 == True:
         symbol = "X"
-        step = int(input("Игрок 1, ход за вами: "))
+        step = int(input("Игрок 1, ваш ход: "))
     else:
         symbol = "0"
-        step = int(input("Игрок 2, ход за вами: "))
+        step = int(input("Игрок 2, ваш ход: "))
 
-    step_maps(step,symbol) # делаем ход в указанную ячейку
-    win = get_result() # определяем победителя
+    step_field(step,symbol) # делаем ход в ячейку
+    win = get_result() # победитель
     if win != "":
         game_over = True
     else:
         game_over = False
 
     player1 = not(player1)
-# игра окончена, объявляем победителя
-print_maps()
+# игра окончена, победитель
+print_field()
 print("Победил ", win)
         
 
