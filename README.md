@@ -75,37 +75,4 @@ while game_over == False:
 
 print_lines()
 print("Победил ", win)
-    for i in lines:
-        if field[i[0]] == "X" and field[i[1]] == "X" and field[i[2]] == "X":
-            win = "X"
-        if field[i[0]] == "0" and field[i[1]] == "0" and field[i[2]] == "0":
-            win = "0"
-
-    return win
-
-# программа
-game_over = False
-player1 = True
-while game_over == False:
-    # 1) Показываем карту
-    print_field()
-
-    # 2) куда делать ход
-    if player1 == True:
-        sym = "X"
-        map = int(input("игрок 1, ваш ход: "))
-    else:
-        sym = "0"
-        map = int(input("игрок 2, ваш ход: "))
-
-    step_field(map,sym) # делаем ход 
-    win = get_result() # победитель
-    if win != "":
-        game_over = True
-    else:
-        game_over = False
-
-    player1 = not(player1)
-# игра окончена, победитель
-print_field()
-print("Победил ", win)
+    
